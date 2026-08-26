@@ -41,28 +41,86 @@ html, body {
     transition: all 0.3s ease;
 }
 
-/* input {
-  background-color: rgba(255, 255, 255, 0.05); 
-  backdrop-filter: blur(24px);                
-  color: white;
-  border-radius: calc(infinity * 1px);
-  padding: 10px 16px;
-  outline: none;
-} */
-
 .container {
+    padding: 1rem;
     color: white;
     width: 100%;
     min-height: 100vh;
+}
+
+.card-wrap {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 100px;
+    gap: 16px;
+}
+
+.card {
+    background-color: rgba(0, 255, 255, 0.331);
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.top-left {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.location h2 {
+    font-size: 18px;
+}
+
+.location p {
+    font-size: 14px;
+}
+
+.temp h1 {
+    font-size: 64px;
+}
+
+.feels-like {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
 }
 
 @media screen and (min-width: 640px) {
     html, body {
         background-image: linear-gradient(to top left, #070F21, #21293C);
+    }
+
+    .container {
+        padding: 32px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    .top-left {
+        flex-direction: row;
+    }
+
+    .location h2 {
+        font-size: 40px;
+    }
+
+    .location p {
+        font-size: 20px;
+    }
+
+    .temp h1 {
+        font-size: 96px;
+    }
+
+    .feels-like {
+        gap: 16px;
+        font-size: 16px;
     }
 }
