@@ -55,8 +55,9 @@ html, body {
 }
 
 .card {
-    background-color: rgba(0, 255, 255, 0.331);
-    padding: 1rem;
+    background-color: #161F32;
+    border: 1px solid #ffffff10;
+    padding: 1.5rem;
     border-radius: 15px;
 }
 
@@ -106,14 +107,20 @@ html, body {
 
 .more-info-card {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 16px;
 }
 
+.more-info-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 @media screen and (min-width: 640px) {
     html, body {
-        background-image: linear-gradient(to top left, #070F21, #21293C);
+        background-image: linear-gradient(to top left, #101524 70%, #21293C);
     }
 
     .container {
@@ -121,7 +128,7 @@ html, body {
     }
 
     .card {
-        padding: 24px;
+        padding: 2.5rem;
     }
 
     .top-left {
@@ -158,5 +165,11 @@ html, body {
         column-gap: 50px;
         font-size: 1rem;
         margin-top: 0;
+    }
+
+    .more-info-card {
+        display: flex;
+        justify-content: start;
+        align-items: center;
     }
 }

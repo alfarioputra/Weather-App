@@ -1,6 +1,8 @@
-import { getWeatherData } from "./api/weather-api.js"
+import { prosesWeatherData } from "./dom.js"
 
 const input = document.getElementById('location')
+
+prosesWeatherData('jakarta')
 
 export default function App() {
     input.addEventListener('keyup', (e) => {
@@ -9,7 +11,9 @@ export default function App() {
         if (e.key === 'Enter' && location.trim() !== '' ) {
             console.log(`nama lokasi: ${location}`)
 
-            getWeatherData(location)
+            prosesWeatherData(location)
+
+            input.value = ''
         }
     })
 
