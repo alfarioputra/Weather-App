@@ -5,7 +5,8 @@ async function getWeatherData(addres) {
         const fetchData = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${addres}?key=${API_KEY}`)
         const response =  await fetchData.json()
         
-        console.log(response)
+        return response
+
     } catch (error) {
         throw new Error("Can't connect to the API, Please try again", error)
     }
