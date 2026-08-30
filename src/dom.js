@@ -14,6 +14,20 @@ async function prosesWeatherData(location) {
 }
 
 function renderWeatherData(weatherData) {
+    cardContainer.innerHTML = ''
+
+    if (!weatherData) {
+        const errorMessage = document.createElement('p')
+        errorMessage.textContent = 'Please enter valid location.'
+        cardContainer.appendChild(errorMessage)
+        return
+    }
+
+    const currentConditions = weatherData.currentConditions.conditions
+    const currentTemp = weatherData.currentConditions.temp
+    const feels = weatherData.days[0]
+    const moreInfoData = weatherData.currentConditions
+
     const card = document.createElement('div')
     card.classList.add('card')
 
@@ -27,7 +41,6 @@ function renderWeatherData(weatherData) {
     location.classList.add('location')
 
     const condition = document.createElement('h2')
-    const currentConditions = weatherData.currentConditions.conditions
     condition.textContent = `Today: ${currentConditions}`
 
     const currentLocation = document.createElement('p')
@@ -37,29 +50,22 @@ function renderWeatherData(weatherData) {
     tempContainer.classList.add('temp')
     
     const temp = document.createElement('h1')
-    const currentTemp = `${weatherData.currentConditions.temp}°`
-    temp.textContent = currentTemp
+    temp.textContent = `${currentTemp}°`
     
     const feelsContainer = document.createElement('div')
     feelsContainer.classList.add('feels-like')
     
     const feelsLike = document.createElement('p')
-    const feelsMax = document.createElement('p')
-    const feelsMin = document.createElement('p')
-    
-    const feels = weatherData.days[0]
-    
     feelsLike.textContent = `Feels Likes: ${weatherData.currentConditions.feelslike}°`
-    feelsMax.textContent = `Max: ${feels.feelslikemax}°`
-    feelsMin.textContent = `Min: ${feels.feelslikemin}°`
 
+    const feelsMax = document.createElement('p')
+    feelsMax.textContent = `Max: ${feels.feelslikemax}°`
+    
+    const feelsMin = document.createElement('p')
+    feelsMin.textContent = `Min: ${feels.feelslikemin}°`
 
     const moreInfo = document.createElement('div')
     moreInfo.classList.add('more-info')
-    
-    const moreInfoData = weatherData.currentConditions
-    console.log(weatherData)
-
     moreInfo.innerHTML = `
         <div class="more-info-card">
             <div>
@@ -76,7 +82,7 @@ function renderWeatherData(weatherData) {
         <div class="more-info-card">
             <div>
                 <p>Chance of rain</p>
-                <p>${moreInfoData.precipprob}%</p>
+                <p><b>${moreInfoData.precipprob}%</b></p>
             </div>
         </div>
         <div class="more-info-card">
@@ -114,8 +120,11 @@ function renderWeatherData(weatherData) {
 
 function loadingComponent() {
     cardContainer.innerHTML = ''
-
     
+    const loading = document.createElement('p')
+    loading.textContent = 'Loading...'
+    
+    cardContainer.appendChild(loading)
 }
 
 export { renderWeatherData, prosesWeatherData }

@@ -8,7 +8,7 @@ async function getWeatherData(addres) {
         return response
 
     } catch (error) {
-        throw new Error("Can't connect to the API, Please try again", error)
+        console.error("Can't connect to the API, Please try again", error)
     }
 }
 
