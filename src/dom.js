@@ -28,8 +28,8 @@ function renderWeatherData(weatherData) {
     const feels = weatherData.days[0]
     const moreInfoData = weatherData.currentConditions
 
-    const card = document.createElement('div')
-    card.classList.add('card')
+    const cardTop = document.createElement('div')
+    cardTop.classList.add('card')
 
     const topLeft = document.createElement('div')
     topLeft.classList.add('top-left')
@@ -104,6 +104,25 @@ function renderWeatherData(weatherData) {
             </div>
         </div>
     `
+
+    const cardBottom = document.createElement('div')
+    cardBottom.classList.add('card')
+
+    const bottomRight = document.createElement('div')
+    bottomRight.classList.add('bottom-right')
+
+    const forcastTitle = document.createElement('h2')
+    forcastTitle.textContent = 'Next 5 days'
+
+    const forcast = document.createElement('div')
+    forcast.classList.add('forcast')
+    forcast.innerHTML = `
+        <div>
+            <p>Tomorow</p>
+        </div>
+    `
+
+    bottomRight.append(forcastTitle, forcast)
     
     location.append(condition, currentLocation)
     tempContainer.append(temp)
@@ -113,9 +132,10 @@ function renderWeatherData(weatherData) {
 
     topLeft.append(mainInfo, moreInfo)
 
-    card.append(topLeft)
+    cardTop.appendChild(topLeft)
+    cardBottom.appendChild(bottomRight)
 
-    cardContainer.appendChild(card)
+    cardContainer.append(cardTop, cardBottom)
 }
 
 function loadingComponent() {
