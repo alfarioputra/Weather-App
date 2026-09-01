@@ -1,8 +1,8 @@
-import { API_KEY } from './api-key.js'
+const apikey = process.env.API_KEY
 
 async function getWeatherData(addres) {
     try {
-        const fetchData = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${addres}?key=${API_KEY}`)
+        const fetchData = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${addres}?key=${apikey}`)
         const response =  await fetchData.json()
         
         return response
