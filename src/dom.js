@@ -105,24 +105,44 @@ function renderWeatherData(weatherData) {
         </div>
     `
 
+    const forecastDays = weatherData.days.slice(1, 6)
+    
+    console.log(forecastDays)
+
     const cardBottom = document.createElement('div')
     cardBottom.classList.add('card')
 
     const bottomRight = document.createElement('div')
     bottomRight.classList.add('bottom-right')
 
-    const forcastTitle = document.createElement('h2')
-    forcastTitle.textContent = 'Next 5 days'
+    const forecastTitle = document.createElement('h2')
+    forecastTitle.textContent = 'Next 5 days'
 
-    const forcast = document.createElement('div')
-    forcast.classList.add('forcast')
-    forcast.innerHTML = `
-        <div>
-            <p>Tomorow</p>
-        </div>
-    `
+    const forecastContainer = document.createElement('div')
+    forecastContainer.classList.add('forecast-container')
 
-    bottomRight.append(forcastTitle, forcast)
+    
+    forecastDays.forEach((days, i) => {
+
+        console.log(days, i)
+
+        const forecast = document.createElement('div')
+        forecast.classList.add('forecast')
+        forecast.innerHTML = `
+            <div class="day-container">
+                <p><b>${days.datetime}</b></p>
+                <p>${days.conditions}</p>
+                <div class="day-forecast-temp">
+                    <p><b>${days.tempmax}°</b></p>
+                    <p>${days.tempmin}°</p>
+                </div>
+            </div>
+        `
+
+        forecastContainer.appendChild(forecast)
+    })
+
+    bottomRight.append(forecastTitle, forecastContainer)
     
     location.append(condition, currentLocation)
     tempContainer.append(temp)
