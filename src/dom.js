@@ -105,32 +105,32 @@ function renderWeatherData(weatherData) {
         </div>
     `
 
-    const forecastDays = weatherData.days.slice(1, 6)
-    
-    console.log(forecastDays)
-
     const cardBottom = document.createElement('div')
     cardBottom.classList.add('card')
-
+    
     const bottomRight = document.createElement('div')
     bottomRight.classList.add('bottom-right')
-
+    
     const forecastTitle = document.createElement('h2')
     forecastTitle.textContent = 'Next 5 days'
-
+    
     const forecastContainer = document.createElement('div')
     forecastContainer.classList.add('forecast-container')
-
     
+    
+    const forecastDays = weatherData.days.slice(1, 6)
+
     forecastDays.forEach((days, i) => {
 
-        console.log(days, i)
+        let daysName = new Date(days.datetime).toLocaleDateString('en', { weekday: 'long' })
+
+        if (i === 0) daysName = 'Tomorrow'
 
         const forecast = document.createElement('div')
         forecast.classList.add('forecast')
         forecast.innerHTML = `
             <div class="day-container">
-                <p><b>${days.datetime}</b></p>
+                <p><b>${daysName}</b></p>
                 <p>${days.conditions}</p>
                 <div class="day-forecast-temp">
                     <p><b>${days.tempmax}°</b></p>
