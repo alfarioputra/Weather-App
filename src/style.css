@@ -68,6 +68,9 @@ html, body {
 
 .main-info {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .location {
@@ -84,9 +87,18 @@ html, body {
     font-size: 14px;
 }
 
+.temp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .temp h1 {
-    margin-block: 10px;
     font-size: 64px;
+}
+
+.temp img {
+    width: 90px;
 }
 
 .feels-like {
@@ -110,6 +122,10 @@ html, body {
     justify-content: start;
     align-items: center;
     gap: 16px;
+}
+
+.more-info-card img {
+    width: 24px;
 }
 
 .more-info-card div {
@@ -175,8 +191,16 @@ html, body {
         font-size: 20px;
     }
 
+    .temp {
+        gap: 1.5rem;
+    }
+
     .temp h1 {
         font-size: 90px;
+    }
+
+    .temp img {
+        width: 120px;
     }
 
     .feels-like {
@@ -197,6 +221,10 @@ html, body {
         display: flex;
         justify-content: start;
         align-items: center;
+    }
+
+    .more-info-card img {
+        width: 40px;
     }
 
     .forecast-container {
