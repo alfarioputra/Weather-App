@@ -139,16 +139,25 @@ async function renderWeatherData(weatherData) {
 
     console.log(weatherData)
 
-    forecastDays.forEach( async (days, i) => {
+    forecastDays.forEach(async (days, i) => {
 
         let daysName = new Date(days.datetime).toLocaleDateString('en', { weekday: 'long' })
 
         if (i === 0) daysName = 'Tomorrow'
 
+        const forecastIconName = days.icon
+        console.log(forecastIconName)
+
+        let forecastPathImg = null
+
+        const forecastICon = await import(`./assets/${forecastIconName}.svg`)
+        forecastPathImg = forecastICon.default
+
         const forecast = document.createElement('div')
         forecast.classList.add('forecast')
         forecast.innerHTML = `
             <div class="day-container">
+                <img src=${forecastPathImg} alt="forecast icon" />
                 <p><b>${daysName}</b></p>
                 <p>${days.conditions}</p>
                 <div class="day-forecast-temp">
