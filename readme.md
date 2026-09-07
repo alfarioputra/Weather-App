@@ -1,3 +1,11 @@
 # Weather App 
 
 part of projects from [The Odin Project](https://www.theodinproject.com/)'s Full Stack JavaScript Course. The main purpose of this project was to practice working with asynchronous code and making API calls, in this case using the [Visual Crossing API](https://www.visualcrossing.com/). In this app, you can search for a location and view its weather data, including current conditions, temperature and feels-like temperature, high and low temperatures, humidity, chance of rain, wind speed, UV index, sunrise and sunset times, and a 5-day forecast.
+
+## Tech Stack
+
+- **HTML**
+- **CSS**
+- **Vanilla JavaScript (ES6 modules)** — the app is split into small modules with explicit `import` / `export`
+- **[Visual Crossing Weather API]**(https://www.visualcrossing.com/weather-api/)
+- **Webpack** — bundles the JS, CSS, HTML, and image assets into a `dist/` build
