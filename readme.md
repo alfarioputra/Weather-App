@@ -7,5 +7,5 @@ part of projects from [The Odin Project](https://www.theodinproject.com/)'s Full
 - **HTML**
 - **CSS**
 - **Vanilla JavaScript (ES6 modules)** — the app is split into small modules with explicit `import` / `export`
-- **[Visual Crossing Weather API]**(https://www.visualcrossing.com/weather-api/)
+- [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api/)
 - **Webpack** — bundles the JS, CSS, HTML, and image assets into a `dist/` build
