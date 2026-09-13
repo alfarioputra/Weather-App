@@ -134,11 +134,9 @@ async function renderWeatherData(weatherData) {
     forecastContainer.classList.add('forecast-container')
     
     
+    
     const forecastDays = weatherData.days.slice(1, 6)
-
-
-    console.log(weatherData)
-
+    
     forecastDays.forEach(async (days, i) => {
 
         let daysName = new Date(days.datetime).toLocaleDateString('en', { weekday: 'long' })
@@ -146,7 +144,6 @@ async function renderWeatherData(weatherData) {
         if (i === 0) daysName = 'Tomorrow'
 
         const forecastIconName = days.icon
-        console.log(forecastIconName)
 
         let forecastPathImg = null
 
